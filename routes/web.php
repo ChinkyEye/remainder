@@ -34,8 +34,16 @@ Auth::routes();
 
 Route::get('/changePassword','HomeController@showChangePasswordForm');
 Route::post('/changePassword','HomeController@changePassword')->name('changePassword');
+ 
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('/home', 'Backend\HomeController@index')->name('home');
+});
+Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], function(){
+	Route::get('/', function(){
+		return "I am inside admin panel";
+	});
+});
 
-Route::get('/home', 'Backend\HomeController@index')->name('home');
 Route::get('/home/client','Backend\ClientController@index');
 Route::post('/home/client/store','Backend\ClientController@store')->name('client-store');
 Route::get('/home/client/{id}/show','Backend\ClientController@show')->name('client-show');
