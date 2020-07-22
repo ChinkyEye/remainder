@@ -17,6 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('list','Backend\ClientController@list');
-Route::get('try','dataController@try');
+Route::post('try','API\dataController@try');
+Route::put('update','API\dataController@update');
 Route::post('/login','API\UserController@login');
 Route::post('/detail','API\UserController@index');
