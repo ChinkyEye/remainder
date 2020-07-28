@@ -1,2 +1,2 @@
 this is the testing message
-Hello {{$user ->name}} Welcome
+Hello {{$users ->name}} Welcome

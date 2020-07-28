@@ -27,6 +27,8 @@ class ClientController extends Controller
     
     public function index()
     {
+         $users= Client::find('8')->notification->value('result');
+        var_dump($users); die();
         $clients=Client::get();
         $counts = Notification::count();
         return view('backend.client',compact('clients','counts'));

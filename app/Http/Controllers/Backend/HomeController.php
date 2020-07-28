@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Client;
+use App\Notification;
 
 class HomeController extends Controller
 {
@@ -21,6 +22,8 @@ class HomeController extends Controller
     
     public function index()
     {
+       
+
         $clients=Client::get();
         return view('backend.home',compact('clients'));
     }

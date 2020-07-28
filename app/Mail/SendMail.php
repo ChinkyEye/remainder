@@ -35,6 +35,6 @@ class SendMail extends Mailable
         // $first =$user ->email;
         // var_dump($first); die();
 
-        return $this->view('lol')-> to('khimdingmilan99@gmail.com');
+        return $this->view('lol')-> to('khimdingmilan100@gmail.com');
     }
 }

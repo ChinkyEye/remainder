@@ -8,20 +8,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use App\User;
 
-class InvoicePaid extends Notification  implements ShouldQueue
+class InvoicePaid extends Notification 
 {
     use Queueable;
 
-    public $user;
+    // public $user;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct(User $lol)
     {
-        $this->user = $user;
+        $this->user2 = $lol;
     }
     // public function __construct()
     // {
@@ -47,7 +47,7 @@ class InvoicePaid extends Notification  implements ShouldQueue
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)->view('mail', ['user' => $this->user]);
+        return (new MailMessage)->view('mail', ['users' => $this->user2]);
         // return (new MailMessage)
         //             ->line('The introduction to the notification.')
         //             ->action('Notification Action', url('/'))

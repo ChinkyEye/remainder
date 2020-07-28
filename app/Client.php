@@ -26,4 +26,8 @@ class Client extends Model
         return $this->hasMany('App\Notification','client_id','id')->orderBy('id','DESC');
     }
 
+    public function notification(){
+        return $this->hasOne('App\Notification');
+    }
+
 }
