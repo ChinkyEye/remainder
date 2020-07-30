@@ -56,7 +56,11 @@
 							<tr>
 								<td>{{$key + 1}}</td>
 								<td>{{$client->c_name}}</td>
+								@if($counts > 0)
 								<td>{{$meetingdate}} </td>
+								@else
+								<td></td>
+								@endif
 								<td><i class="fas fa-square {{$client->priority == '1'? 'text-danger': ($client->priority == '2'? 'text-warning' : 'text-success') }}"></i> {{$display}}</td>
 							</tr>
 							@endforeach

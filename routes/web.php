@@ -15,7 +15,6 @@ use App\User;
 
 Route::get('/', function () {
 	// User::find(1) -> notify(new InvoicePaid );
-
 	$user = User::find(1);
 	Notification::route('mail', 'khimdingmilan100@gmail.com')
             ->notify(new InvoicePaid($user));
@@ -40,11 +39,11 @@ Route::post('/changePassword','HomeController@changePassword')->name('changePass
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('/home', 'Backend\HomeController@index')->name('home');
 });
-// Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], function(){
-// 	Route::get('/', function(){
-// 		return "I am inside admin panel";
-// 	});
-// });
+Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], function(){
+	Route::get('/', function(){
+		return "I am inside admin panel";
+	});
+});
 
 Route::get('/home/client','Backend\ClientController@index');
 Route::post('/home/client/store','Backend\ClientController@store')->name('client-store');

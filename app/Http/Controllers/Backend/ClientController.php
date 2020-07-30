@@ -27,9 +27,11 @@ class ClientController extends Controller
     
     public function index()
     {
-         $users= Client::find('8')->notification->value('result');
-        var_dump($users); die();
-        $clients=Client::get();
+         // $users= Client::find('8')->notification->value('a_date');
+         // dd($users);
+        // var_dump($users); die();
+        $clients=Client::paginate(1);
+        // $clients=Client::get();
         $counts = Notification::count();
         return view('backend.client',compact('clients','counts'));
     }
@@ -48,7 +50,8 @@ class ClientController extends Controller
     public function create()
     {
         $clients=Client::orderBy('priority', 'ASC')->get();
-        return view('backend.view',compact('clients'));
+        $counts = Notification::count();
+        return view('backend.view',compact('clients','counts'));
     }
 
     /**

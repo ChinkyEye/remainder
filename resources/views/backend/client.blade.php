@@ -245,6 +245,7 @@
 								</tbody>
 							</table>
 						</div>
+							{{$clients->links("pagination::bootstrap-4") }}
 					</div>
 				</div>
 				
